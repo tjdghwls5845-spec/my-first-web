@@ -1,0 +1,88 @@
+ /* 1. 전체 배경색과 기본 폰트 */
+        body {
+            font-family: "Nanum Myeongjo", serif;
+            background-color: #FCBF49;
+            color: #003049;
+            line-height: 1.7;
+            margin: 0;
+        }
+        /* 2. 헤더 꾸미기 */
+        header {
+            background-color: #D62828;
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+        }
+        /* 메뉴바 (nav) 꾸미기 */
+        nav {
+            text-align: center;
+            padding: 15px;
+            background-color: white;
+        }
+        nav a {
+            margin: 0 15px;
+            text-align: none;
+            font-weight: bold;
+            /* [링크색] 헤더 색상과 비슷한 계열의 중간 톤을 고르세요 */
+            color: #F77F00;
+        }
+        /* 이미지 (사진) 예쁘게 만들기 */
+        img {
+            display: block;
+            margin: 30px auto;
+            width: 250px;
+            border-radius: 50%;
+            border: 10px solid white;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0, 1);
+        }
+        header, footer {
+            padding: 50px 0;
+        }
+        main {
+            width: 80%;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: white;
+            border: 1px solid #ddd;
+        }
+        .my-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #3f72af;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        /* 마우스를 올리면(hover)  효과*/
+        .my-button:hover {
+            background-color: #122d4e;
+            transform: translate(-3px);
+        }
+         .material-symbols-outlined {
+         font-variation-settings:
+         'FILL' 0,
+         'wght' 400,
+         'GRAD' 0,
+         'opsz' 24
+        }
+        /*  전공페이지 스타일 */
+        .crop-item {
+            display: flex;
+            gap: 50px;
+            padding: 30px;
+            border-radius: 15px;
+            background-color: #f9fdf9;
+        }
+        .crop-image {
+            flex: 1;
+        }
+        .crop-details {
+            flex: 1.5;
+        }
+        .step-guide {
+            border: 1px dashed #4caf50;
+            text-align: center;
+        }
