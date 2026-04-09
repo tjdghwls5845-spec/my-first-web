@@ -31,7 +31,7 @@
             display: block;
             margin: 30px auto;
             width: 250px;
-            border-radius: 50%;
+            border-radius: 15px;
             border: 10px solid white;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0, 1);
         }
@@ -170,4 +170,35 @@
             color: #2e7d32;
             border-bottom: 1px solid #eee;
             padding-bottom: 10px;
+        }
+        /* 갤러리 전용 디자인 */
+        .display-box {
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        #targetimg {
+            border-radius: 15px;
+            transition: transform 0.3 ease;
+        }
+        .thumb-list {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .thumb-list img {
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: 0.2s;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .thumb-list img:hover {
+            border-color: #3f72af;
+            transform: scale(1.1);
         }

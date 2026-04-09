@@ -23,25 +23,23 @@
         <a href="gallery.html">갤러리</a>
     </nav>
     <main>
-        <img src="./image/rmffjqm.png" alt="내사진" width="200">
-        <p>
-            <ul>
-                <li><strong>취미:</strong><span class="material-symbols-outlined">
-exercise
-</span>예전에 운동부였었는데 운동을 그만뒀습니다 그래서 그런지 운동을 하는 걸 좋아합니다, <span class="material-symbols-outlined">
-music_note
-</span>그리고 노래듣는 것을 좋아하고 부르는 것도 좋아합니다 특히 산책하며 노래듣는 것을 좋아합니다</li>
-<li><strong>좌우명:</strong> 노력은 배신하지 않는다는 말을 좋아합니다</li>
-                <li><strong>장래희망:</strong> 진로를 아직 찾는 중 입니다</li>
-                <li><strong>좋아하는 음식:</strong> <span class="material-symbols-outlined">
-fastfood
-</span>햄버거, 떡만두국</li>
-            </ul>
-        </p>
-        <a href="#" class="my-button">나에 대해 더 알아보기</a>
+        <div class="display-box">
+            <img id="targetImg" src="./image/보리1.jpg" style="width: 100%; max-width: 500px;/">
+            <p id="targetDesc">6월17일: 보리 첫 수확!</p>
+        </div>
+        <div class="thumb-list">
+            <img src="image/보리1.jpg" onclick="show('image/보리1.jpg', '6월 17일: 보리 첫 수확!')"/>
+            <img src="image/보리2.jpg" onclick="show('image/보리2.jpg', '6월 19일: 보리 비료주기!')"/>
+        </div>
     </main>
     <footer>
         문의 : tjdghwls5845@goedu.kr, &copy; @ all right resevered by 2026 성호진
     </footer>
+    <script>
+        function show(imgPath, text) {
+            document.getElementById("targetImg").src=imgPath;
+            document.getElementById("targetDesc").innerText=text;
+        }
+    </script>
 </body>
 </html>
