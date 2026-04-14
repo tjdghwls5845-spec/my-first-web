@@ -23,7 +23,13 @@
         <a href="gallery.html">갤러리</a>
     </nav>
     <main>
-        <section class="agriculture-portfolio">
+        <div id="login-box" style="text-align: center; margin: 50px;">
+            <h2>🔒 시스템 인증이 필요합니다</h2>
+            <input type="password" id="userPw" placeholder="암호 4자리" />
+            <button onclick="checkLogin()">입장하기</button>
+        </div>
+        <div id="secret-area" style="display: none;">
+            <section class="agriculture-portfolio">
             <article class="crop-item">
                 <figure class="crop-image">
                     <img src="image/Tkf.jpg" alt="직접 재배한 농작물 사진" />
@@ -101,6 +107,7 @@
                 </div>
             </form>
         </section>
+        </div>
     </main>
     <footer>
         문의 : tjdghwls5845@goedu.kr, &copy; @ all right resevered by 2026 성호진
@@ -150,6 +157,19 @@
             `;
             //5. 숨겨져 있던 영수증 상자 보여주기
             receipt.style.display = "block";
+        }
+        function checkLogin() {
+            //1. 입력된 암호 값 읽기
+            let pw = document.getElementById("userPw").value;
+            //2. 조건문을 활용한 인증 로직 구현
+            if (pw === "1234") {
+                alert("인증에 성공하였습니다.");
+                // UI 상태 변경: 로그인 창은 숨기고, 콘텐츠 영역은 표시됩니다.
+                document.getElementById("login-box").style.display = "none";
+                document.getElementById("secret-area").style.display = "block";
+            } else {
+                alert("암호가 일치하지 않습니다. 다시 시도하십시오.");
+            }
         }
     </script>
 </body>
