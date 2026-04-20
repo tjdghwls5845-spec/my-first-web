@@ -23,6 +23,14 @@
         <a href="gallery.html">갤러리</a>
     </nav>
     <main>
+        <div id="login-box" style="text-align: center; margin: 50px;">
+            <h2>🔒 시스템 인증이 필요합니다</h2>
+            <input type="text" id="userId" placeholder="사용자 이름"><br>
+            <input type="password" id="userPw" placeholder="암호 입력" /><br>
+            <button onclick="checkLogin()">입장하기</button>
+        </div>
+         <div id="secret-area" style="display: none;">
+            <h3 style="color: #2e7d32;">👏 <span id="user-display"></span>님, 반갑습니다!</h3>
         <div class="display-box">
             <img id="targetImg" src="./image/보리1.jpg" style="width: 100%; max-width: 500px;/">
             <p id="targetDesc">6월17일: 보리 첫 수확!</p>
@@ -54,6 +62,14 @@
             
             <img src="image/보리10.jpg" onclick="show('image/보리10.jpg', '보리로 만든 다른 음식 : 보리차')"/>
         </div>
+        <div id="settings" style="margin-top: 30px; padding: 20px; border: 1px solid #ddd; background: #fff;">
+            <h4>🔑 시스템 보안 설정</h4>
+            <p style="font-size: 0.9em; color: #666;">보안을 위해 정기적으로 비밀번호를 변경해 주세요.</p>
+            <input type="password" id="newPw" placeholder="새 비밀번호 입력" />
+            <button onclick="changePassword()">비밀번호 변경</button>
+            <button onclick="logout()">로그아웃</button>
+        </div>
+        </div>
     </main>
     <footer>
         문의 : tjdghwls5845@goedu.kr, &copy; @ all right resevered by 2026 성호진
@@ -62,6 +78,52 @@
         function show(imgPath, text) {
             document.getElementById("targetImg").src=imgPath;
             document.getElementById("targetDesc").innerText=text;
+        }
+        function checkLogin() {
+            //1. 입력된 암호 값 읽기
+            let name = document.getElementById("userId").value;
+            let pw = document.getElementById("userPw").value;
+
+            let currentPw = localStorage.getItem("userPassword") || "1234";
+            //2. 조건문을 활용한 인증 로직 구현
+            if (pw === currentPw && name !== "") {
+                localStorage.setItem("isLoggedIn", "true");
+                localStorage.setItem("savedName", name);
+                localStorage.setItem("userPassword", currentPw);
+
+                alert(name + "님, 인증 정보가 저장소에 기록되었습니다.")
+
+                // UI 상태 변경: 로그인 창은 숨기고, 콘텐츠 영역은 표시됩니다.
+                document.getElementById("login-box").style.display = "none";
+                document.getElementById("secret-area").style.display = "block";
+                document.getElementById("user-display").innerText = name;
+
+            } else {
+                alert("이름을 입력하지 않았거나 암호가 틀렸습니다.");
+            }
+        }
+        // 페이지가 로드될 때 실행되는 함수
+        window.onload = function() {
+            let isLoggedIn = localStorage.getItem("isLoggedIn");
+            let savedName = localStorage.getItem("savedName");
+            if (isLoggedIn === "true") {
+                document.getElementById("login-box").style.display = "none";
+                document.getElementById("secret-area").style.display = "block";
+                document.getElementById("user-display").innerText = savedName;
+            }
+        };
+        function changePassword() {
+            let newPw = document.getElementById("newPw").value;
+            if (newPw.length < 4) { alert("암호는 4자리 이상이어야 합니다."); return; }
+            localStorage.setItem("userPassword", newPw);
+            alert("비밀번호가 변경되었습니다.");
+        }
+        function logout() {
+            if (confirm("로그아웃 하시겠습니까?")) {
+                localStorage.removeItem("isLoggedIn");
+                localStorage.removeItem("savedName");
+                location.href = "index.html";
+            }
         }
     </script>
 </body>
